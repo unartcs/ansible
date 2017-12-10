@@ -1,0 +1,8 @@
+-hosts: [servers]
+tasks:
+-name:exercise1 and 1.1
+file: path=/~/ansible state=directory
+command: git init /~/ansible
+command: cat /etc/hosts
+
+
