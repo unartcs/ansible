@@ -4,7 +4,8 @@
        yum: name=ntp state=latest
        become: true
      - name: copy ntp config file
-       command: 'cp ~/ansible/ntp.conf' '/etc/ntp.conf'
+       copy: src=~/ansible/ntp.conf dest=/etc/ntp.conf
+       become: true
        notify:
          - check NTP config
      - name: check if NTP service is started
