@@ -1,8 +1,14 @@
--hosts: [servers]
-	tasks:
-	-name:exercise1 and 1.1
-	file: path=~/ansible state=directory
-	command: git init ~/ansible
-	command: cat /etc/hosts
+---
+- hosts: servers
+  tasks:
+  - name: Create GIT dir
+    file: path=~/ansible state=directory
+  - name: Download git
+    yum: name=git state=latest
+    become: True
+  - name: Git init Ansible
+    command: 'git init /home/ec2-user/ansible/'
+  - name: Cat HOSTS file
+    command: 'cat /etc/hosts'
 
 

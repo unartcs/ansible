@@ -1,0 +1,6 @@
+- hosts: servers
+  vars:
+    node2: rara
+  tasks:
+   
+    - debug: msg="my node1 name is {{ node1 }} and my node2 name is {{ node2 }} "

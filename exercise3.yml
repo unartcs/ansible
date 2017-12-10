@@ -9,9 +9,9 @@
        notify:
          - check NTP config
      - name: check if NTP service is started
-       service: name=ntp state=started
+       service: name=ntpd state=started
        become: true
   handlers:
      - name: check NTP config
-       service: name=ntp state=restarted
+       service: name=ntpd state=restarted
        become: true
