@@ -1,0 +1,11 @@
+- hosts: servers
+  tasks:
+    - include_vars: myvars.yml
+    - debug: msg="My name is {{ name,lastname }}"
+    - name: first name
+      pause: prompt="What is your name?"
+      register: name.r
+    - name: last name
+      pause: prompt="What is your lastname?" 
+      register: lastname.r
+    #debug: msg="Your name is {{ name.r,lastname.r }}"
