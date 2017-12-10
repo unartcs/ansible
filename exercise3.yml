@@ -1,0 +1,16 @@
+- hosts: servers
+  tasks:
+     - name: install yum
+       yum: name=ntp state=latest
+       become: true
+     - name: copy ntp config file
+       command: 'cp ~/ansible/ntp.conf' '/etc/ntp.conf'
+       notify:
+         - check NTP config
+     - name: check if NTP service is started
+       service: name=ntp state=started
+       become: true
+  handlers:
+     - name: check NTP config
+       service: name=ntp state=restarted
+       become: true
