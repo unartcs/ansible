@@ -1,0 +1,9 @@
+- hosts: servers
+  tasks:
+     - name: install mysql centos
+       yum: name=mysql state=latest
+       become: true
+       when: ansible_os_family == "RedHat"
+     - name: install mysql ubuntu
+       apt: name=mysql state=latest
+       when: ansible_os_family == "Debian"
