@@ -1,0 +1,5 @@
+- hosts: servers
+  tasks:
+    - name: make MOTD
+      template: src=tempmotd.j2 dest=/etc/motd
+      become: true

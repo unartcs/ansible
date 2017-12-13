@@ -1,0 +1,9 @@
+- hosts: servers
+  become: true
+  tasks:
+    - name: uinstall mysql centos
+      yum: name=mysql state=removed
+      when: ansible_os_family == "Redhat"
+    - name: uninstall mysql ubuntu
+      yum: name=mysql-server state=removed
+      when: ansible_os_family == "Debian"

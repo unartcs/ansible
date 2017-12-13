@@ -2,6 +2,7 @@
 node1 ansible_host=10.0.0.4
 node2 ansible_host=10.0.0.5
 node3 ansible_host=10.0.0.9 ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3
-[servers:vars]
-node1=yossi
-node2=david
+
+#[servers:vars]
+#node1=yossi
+#node2=david
